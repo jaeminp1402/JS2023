@@ -1,6 +1,9 @@
 'use strict';
 
-/* 함수 바인딩(binding) - 함수 호출 시점의 함수 상태(this, 인수값)를 고정시킴 */
+/********************* */
+/* 함수 바인딩(binding) */
+/********************* */
+// - 함수 호출 시점의 함수 상태(this, 인수값)를 고정시킴 
 let user = {
     name: 'John',
   
@@ -16,8 +19,9 @@ function askPassword(ok, fail) {
 askPassword(user.login.bind(user, true), user.login.bind(user, false));
 
 
-
+/******************************* */
 /* 부분 적용(partial application) */
+/******************************* */
 // function mul(a, b) {
 //     return a * b;
 // }
