@@ -19,7 +19,7 @@ async function loadJson(url) {
   let response = await fetch(url);
   
   if (response.status == 200) {
-    return response.json();
+    return response.json();       // return 하기 전에 await해도 이 함수를 사용하는 곳에서 await를 또 해줘야 함
   } else {
     throw new HttpError(response);
   }    
