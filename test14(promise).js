@@ -38,7 +38,7 @@ fetch('https://api.github.com/users/lukas')
 //     error => alert(error)
 //   )
 //   .then(
-//     result => one(),
+//     result => one(),         // then() 안에서만 불러온 script에 정의된 함수를 호출할 수 있음 
 //     error => alert(error)
 //   )
 

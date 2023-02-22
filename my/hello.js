@@ -1,7 +1,7 @@
 'use strict';
 
-function one() {
-    alert('hello world!!');
+function sayHi(user) {
+    alert('Hello, ' + user);
 };
 
 

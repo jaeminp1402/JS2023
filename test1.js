@@ -1,16 +1,21 @@
 'use strict';
 
-class FormatError extends SyntaxError {
-    constructor(message) {
-      super(message);       // 부모 생성자 호출
-      this.name = this.constructor.name; // name 자동설정
-    }
+// import {sayHi} from './hello.js';
+// sayHi('Suji');
+
+function loadscript(src) {  
+    return new Promise( function(resolve, reject) {
+        let script = document.createElement('script');  //<script src="…">를 동적으로 만들고 이를 문서에 추가
+        script.src = src;
+        script.onload = () => resolve('loading OK...');
+        script.onerror = () => reject(new Error(`${src} loading error...`));
+        document.head.append(script);
+    });
 }
+const add_script = async() => {
+  await loadscript('./my/hello.js');
+  sayHi('Suji');
+};
 
-let err = new FormatError("formatting error");
+add_script();
 
-alert(err.message);
-alert(err.name);
-alert(err.stack);
-
-alert(err instanceof SyntaxError);
