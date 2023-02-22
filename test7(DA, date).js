@@ -1,9 +1,12 @@
 'use strict';
 
-/* 자료구조와 자료형 */
+/********************************************/
+/* 구조 분해 할당(destructuring assignment) */
+/* Date 객체                                */
+/********************************************/
+// DA는 Object.entries() 함수를 이용해서 객체를 key, value로 
 
-/* Date 객체 */
-
+// 25.12.97 20:20:00 format으로 출력하는 함수
 function formatDate(date) {
     let now = new Date();
     let diff_ms = now - date;
@@ -40,7 +43,6 @@ alert( formatDate(new Date(new Date - 86400 * 1000)) );
 //     return day[date.getDay()];
 // }
 // let date = new Date(2012, 0, 3);  // 2012년 1월 3일
-
 
 // let date = new Date('2012-02-20T03:12');
 // alert(date)
