@@ -47,7 +47,7 @@ alert(user + 500);  // valueOf -> 1500
 // alert(calculator.mul());
 
 // let calculator = {
-//     read() {
+//     read : function() {
 //         this.f_value = +prompt('input first value:',0);
 //         this.s_value = +prompt('input second value:',0);
 //     },
@@ -70,7 +70,7 @@ alert(user + 500);  // valueOf -> 1500
 
 // function User(name, age) {
 //     return {
-//         name,  // name: name과 동일 (property value shorthand)
+//         name,  // name: name, 과 동일 (property value shorthand)
 //         age,
 //     }
 // }

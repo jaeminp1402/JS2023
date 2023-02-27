@@ -3,7 +3,8 @@
 /* 객체 property flag(플래그) & descriptor(설명자)  */
 /* 접근자 프로퍼티(accessor property) */
 
-// 기존 User(name, age)와 호환성을 위해서 age 프로퍼티를 getter를 사용해서 구현함
+// 기존 생성자 함수 User(name, age)와 호환성을 위해서 'age' 프로퍼티를 getter를 사용해서 구현함
+// 객체 안에서는 get propName() {}으로 구현하고, 생성자 함수 안에서는 Object.defineProperty() 함수로 구현함
 function User(name, birthday) {   
     this.name = name;
     this.birthday = birthday;
