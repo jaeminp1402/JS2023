@@ -5,19 +5,19 @@
 /* func.apply(context, args)는 유사 배열 형태의 args만 사용가능 */
 
 function cachingDecorator(func, hash) {
-    let cache = new Map();
+    let cache = new Map();     // Decorator() 호출 시 1회만 실행됨
 
-    return function() {
-        let key = hash(arguments);  //arguments는 자동으로 매개변수를 참조함
+    return function(...args) {  // 나머지 매개변수(rest parameter)
+        let key = hash(args);  
         if( cache.has(key) ) {
             return cache.get(key);
         }
-        let result = func.call(this, ...arguments);
+        let result = func.call(this, ...args);
         cache.set(key, result);
         return result;
     };
 }
-function hash(args) {   // arguments는 유사 배열 객체
+function hash(args) {   // arguments는 유사 배열 객체, args는 진짜 배열 객체
     return [].join.call(args);    // method 빌리기
 }
 let worker = {
