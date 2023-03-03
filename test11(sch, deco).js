@@ -3,6 +3,7 @@
 /* 함수 데코레이팅(decorating), call / apply */
 /* func.call(context, ...args)은 context를 this로 명시적으로 고정해서 함수를 호출함 */
 /* func.apply(context, args)는 유사 배열 형태의 args만 사용가능 */
+/* obj.method.bind(obj)는 객체 method 호출 시 this를 obj로 고정시킴 */
 
 function cachingDecorator(func, hash) {
     let cache = new Map();     // Decorator() 호출 시 1회만 실행됨
@@ -12,7 +13,7 @@ function cachingDecorator(func, hash) {
         if( cache.has(key) ) {
             return cache.get(key);
         }
-        let result = func.call(this, ...args);
+        let result = func.call(this, ...args); 
         cache.set(key, result);
         return result;
     };
@@ -28,6 +29,7 @@ let worker = {
     }
 }
 worker.slow = cachingDecorator(worker.slow, hash);
+//worker.slow = cachingDecorator(worker.slow.bind(worker), hash); // 이렇게 하면 func.call() 대신 func() 사용가능
 alert( 'result: ' + worker.slow(5, 3) );
 alert( 'result: ' + worker.slow(5, 3) );
 
